@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Navbar } from "./components/Navbar";
@@ -19,7 +17,10 @@ export default function App() {
   const [selectedItemId, setSelectedItemId] = useState<string>("");
   const [user, setUser] = useState<any>(null);
   const [gadgets, setGadgets] = useState<Gadget[]>([]);
-  const [toast, setToast] = useState<{ message: string; type: "success" | "error" | "info" } | null>(null);
+  const [toast, setToast] = useState<{
+    message: string;
+    type: "success" | "error" | "info";
+  } | null>(null);
 
   // Sync user session on mount
   useEffect(() => {
@@ -135,7 +136,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-bg-dark text-text-main font-sans selection:bg-brand-primary/30 selection:text-text-main" id="applet-viewport">
+    <div
+      className="min-h-screen flex flex-col bg-bg-dark text-text-main font-sans selection:bg-brand-primary/30 selection:text-text-main"
+      id="applet-viewport"
+    >
       {/* Dynamic Global Navbar */}
       <Navbar
         currentView={currentView}
@@ -161,11 +165,16 @@ export default function App() {
       </main>
 
       {/* FINAL SYSTEM DIAGNOSTIC PANEL AS REQUESTED IN MANDATORY SPEC */}
-      <section className="bg-surface-dim border-t border-border-main/50 px-4 py-3" id="system-diagnostic-metrics-tray">
+      <section
+        className="bg-surface-dim border-t border-border-main/50 px-4 py-3"
+        id="system-diagnostic-metrics-tray"
+      >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[10px] font-mono text-text-dim">
           <div className="flex items-center gap-2">
             <Activity className="w-3.5 h-3.5 text-brand-secondary animate-pulse" />
-            <span className="font-bold text-text-muted">System Status &amp; Pipeline Metrics:</span>
+            <span className="font-bold text-text-muted">
+              System Status &amp; Pipeline Metrics:
+            </span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
             <div className="flex items-center gap-1.5">
@@ -203,16 +212,20 @@ export default function App() {
             className="fixed bottom-6 right-6 z-50 p-4 rounded-xl border max-w-sm flex items-start gap-3 shadow-2xl backdrop-blur-md bg-surface-card border-border-bright"
             id="toast-hud-container"
           >
-            <div className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${
-              toast.type === "success" 
-                ? "bg-emerald-400"
-                : toast.type === "error"
-                ? "bg-rose-400"
-                : "bg-brand-secondary"
-            }`} />
-            
+            <div
+              className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${
+                toast.type === "success"
+                  ? "bg-emerald-400"
+                  : toast.type === "error"
+                    ? "bg-rose-400"
+                    : "bg-brand-secondary"
+              }`}
+            />
+
             <div className="flex-1">
-              <p className="text-xs font-semibold text-text-main leading-relaxed">{toast.message}</p>
+              <p className="text-xs font-semibold text-text-main leading-relaxed">
+                {toast.message}
+              </p>
             </div>
 
             <button
