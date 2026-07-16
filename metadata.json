@@ -1,0 +1,6 @@
+{
+  "name": "ElectroRent",
+  "description": "Premium smart gadget rental platform providing frictionless access to high-performance DJI drones, cinema cameras, and gaming laptops.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
